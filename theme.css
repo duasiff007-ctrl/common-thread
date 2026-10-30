@@ -1,0 +1,360 @@
+
+/* =========================================
+   COMMON THREAD — THEME
+   Soft, muted colors for light and dark mode
+========================================= */
+
+:root {
+  color-scheme: light;
+
+  /* Light theme */
+  --bg: #f7f0ed;
+  --bg-soft: #f0e5e1;
+  --surface: #fffaf7;
+  --surface-hover: #f5e9e5;
+
+  --text: #3e3038;
+  --text-soft: #75636d;
+  --text-muted: #96838b;
+
+  --primary: #99717f;
+  --primary-hover: #805967;
+  --primary-soft: #ead9df;
+
+  --accent: #c5a69b;
+  --border: #e4d5d0;
+
+  --header-bg: rgba(247, 240, 237, 0.88);
+  --shadow: 0 12px 35px rgba(74, 47, 59, 0.08);
+
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+
+  --container: 1180px;
+
+  --transition: 220ms ease;
+}
+
+/* =========================================
+   DARK THEME
+========================================= */
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #29242a;
+  --bg-soft: #342b33;
+  --surface: #3a3039;
+  --surface-hover: #463741;
+
+  --text: #f3e9e7;
+  --text-soft: #c7b4bd;
+  --text-muted: #a18d98;
+
+  --primary: #c39aa9;
+  --primary-hover: #d5b0bd;
+  --primary-soft: #503b48;
+
+  --accent: #b9988d;
+  --border: #574650;
+
+  --header-bg: rgba(41, 36, 42, 0.9);
+  --shadow: 0 12px 35px rgba(0, 0, 0, 0.16);
+}
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--primary-soft);
+  color: var(--text);
+}
+
+/* =========================================
+   SHARED LAYOUT
+========================================= */
+
+.container {
+  width: min(var(--container), calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: 80px;
+}
+
+.section-heading {
+  max-width: 650px;
+  margin-bottom: 36px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--primary);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 6vw, 5.4rem);
+  font-weight: 600;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+p {
+  color: var(--text-soft);
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-align: center;
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    transform var(--transition);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fffaf8;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  background: var(--surface-hover);
+  border-color: var(--primary);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================================
+   FORMS
+========================================= */
+
+input,
+select,
+textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  transition:
+    border-color var(--transition),
+    background-color var(--transition);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+/* =========================================
+   CARDS
+========================================= */
+
+.card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.card-content {
+  padding: 22px;
+}
+
+/* =========================================
+   BADGES AND LABELS
+========================================= */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--primary-soft);
+  color: var(--text);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.divider {
+  height: 1px;
+  border: 0;
+  background: var(--border);
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================
+   SMALL SCREENS
+========================================= */
+
+@media (max-width: 600px) {
+  .container {
+    width: min(100% - 32px, var(--container));
+  }
+
+  .section {
+    padding-block: 56px;
+  }
+
+  .btn {
+    padding: 11px 18px;
+  }
+}

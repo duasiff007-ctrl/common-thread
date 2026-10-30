@@ -1,0 +1,12 @@
+
+# Dependencies
+node_modules/
+backend/node_modules/
+
+# Private environment variables
+.env
+.env.*
+!.env.example
+
+# Debug files
+npm-debug.log*

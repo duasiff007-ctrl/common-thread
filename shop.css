@@ -1,0 +1,153 @@
+/* ---------- Shared: page heading ---------- */
+.page-head {
+  padding-bottom: 0;
+}
+
+.page-head p {
+  max-width: 52ch;
+  margin-top: 1rem;
+  color: var(--text-muted);
+}
+
+.outfit-link {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-strong);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+}
+
+/* ---------- Shared: toggle buttons ---------- */
+.toggle-group {
+  display: inline-flex;
+  max-width: 100%;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  overflow-x: auto;
+  background-color: var(--bg-soft);
+  border-radius: 999px;
+}
+
+.toggle {
+  flex-shrink: 0;
+  padding: 0.5rem 1.1rem;
+  font: inherit;
+  color: var(--text-muted);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color var(--transition), background-color var(--transition);
+}
+
+.toggle:hover {
+  color: var(--text);
+}
+
+.toggle[aria-pressed="true"] {
+  color: var(--on-accent);
+  background-color: var(--accent-strong);
+}
+
+/* ---------- Shared: empty message ---------- */
+.empty-state {
+  margin-top: 1rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Shop ---------- */
+.shop-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+}
+
+.result-count {
+  margin-top: 1.75rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 2rem 1.25rem;
+  margin-top: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* The colored block stands in for a product photo */
+.product-card__image {
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  outline: 3px solid transparent;
+  outline-offset: 3px;
+  transition: outline-color var(--transition);
+}
+
+.product-card.is-chosen .product-card__image {
+  outline-color: var(--accent-strong);
+}
+
+.product-card__info {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "name price"
+    "meta meta";
+  gap: 0.1rem 0.75rem;
+}
+
+.product-card__name {
+  grid-area: name;
+  font-size: 1.35rem;
+}
+
+.product-card__price {
+  grid-area: price;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.product-card__meta {
+  grid-area: meta;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.product-card__add {
+  width: 100%;
+  margin-top: auto;
+  padding: 0.65rem 1rem;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+@media (max-width: 560px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 0.75rem;
+  }
+
+  .product-card__name {
+    font-size: 1.15rem;
+  }
+
+  .product-card__add {
+    padding: 0.6rem 0.5rem;
+    font-size: 0.95rem;
+  }
+}

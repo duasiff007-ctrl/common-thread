@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create your own look with the Common Thread Outfit Builder.">
+  <title>Outfit Builder | Common Thread</title>
+
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pages.css">
+
+  <script src="theme.js" defer></script>
+  <script src="data.js" defer></script>
+  <script src="builder.js" defer></script>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand">common thread<span>.</span></a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Collections</a>
+        <a href="builder.html" class="active">Outfit Builder</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle light and dark mode"
+          title="Toggle theme"
+        >
+          <span class="theme-icon">☾</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page introduction -->
+    <section class="builder-hero">
+      <div class="container">
+        <span class="eyebrow">YOUR STYLE, YOUR RULES</span>
+        <h1>Put your look <em>together.</em></h1>
+        <p>
+          Mix pieces, play with colours, and create something that feels
+          completely you. There are no rules here.
+        </p>
+      </div>
+    </section>
+
+    <!-- Outfit builder -->
+    <section class="builder-section">
+      <div class="container">
+
+        <div class="builder-intro">
+          <div>
+            <span class="eyebrow">THE OUTFIT STUDIO</span>
+            <h2>Build your outfit</h2>
+            <p>
+              Choose pieces from either collection. Mix men's and women's
+              styles however you like.
+            </p>
+          </div>
+        </div>
+
+        <div class="builder-layout">
+
+          <!-- Left: Product selection -->
+          <div class="builder-controls">
+
+            <div class="builder-panel">
+              <div class="builder-panel-heading">
+                <div>
+                  <span class="step-number">01</span>
+                  <h3>Choose your pieces</h3>
+                </div>
+                <p>Explore all available styles.</p>
+              </div>
+
+              <!-- Collection filter -->
+              <div class="builder-filter-group">
+                <label class="filter-label">Collection</label>
+
+                <div class="builder-filter-row" id="builder-gender-filters">
+                  <button
+                    type="button"
+                    class="builder-filter-btn active"
+                    data-builder-gender="all"
+                    aria-pressed="true"
+                  >
+                    All pieces
+                  </button>
+
+                  <button
+                    type="button"
+                    class="builder-filter-btn"
+                    data-builder-gender="women"
+                    aria-pressed="false"
+                  >
+                    Women's
+                  </button>
+
+                  <button
+                    type="button"
+                    class="builder-filter-btn"
+                    data-builder-gender="men"
+                    aria-pressed="false"
+                  >
+                    Men's
+                  </button>
+                </div>
+              </div>
+
+              <!-- Category filter -->
+              <div class="builder-filter-group">
+                <label class="filter-label">Category</label>
+
+                <div class="builder-filter-row" id="builder-category-filters">
+                  <button
+                    type="button"
+                    class="builder-filter-btn active"
+                    data-builder-category="all"
+                    aria-pressed="true"
+                  >
+                    All
+                  </button>
+
+                  <button
+                    type="button"
+                    class="builder-filter-btn"
+                    data-builder-category="tops"
+                    aria-pressed="false"
+                  >
+                    Tops
+                  </button>
+
+                  <button
+                    type="button"
+                    class="builder-filter-btn"
+                    data-builder-category="bottoms"
+                    aria-pressed="false"
+                  >
+                    Bottoms
+                  </button>
+
+                  <button
+                    type="button"
+                    class="builder-filter-btn"
+                    data-builder-category="purses"
+                    aria-pressed="false"
+                  >
+                    Purses
+                  </button>
+
+                  <button
+                    type="button"
+                    class="builder-filter-btn"
+                    data-builder-category="sunglasses"
+                    aria-pressed="false"
+                  >
+                    Sunglasses
+                  </button>
+                </div>
+              </div>
+
+              <!-- Products rendered by builder.js -->
+              <div class="builder-items" id="builder-items">
+                <p class="empty-message">Loading pieces...</p>
+              </div>
+
+              <p
+                class="builder-status"
+                id="builder-status"
+                role="status"
+                aria-live="polite"
+              >
+                Choose a piece to start building your outfit.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: Outfit preview -->
+          <aside class="outfit-preview">
+            <div class="outfit-preview-heading">
+              <span class="step-number">02</span>
+              <h3>Your outfit</h3>
+              <p>Your selected pieces will appear here.</p>
+            </div>
+
+            <div class="outfit-preview-list" id="outfit-preview-list">
+
+              <div class="outfit-slot" data-slot="tops">
+                <div class="outfit-slot-placeholder">
+                  <span>01</span>
+                  <div>
+                    <strong>Top</strong>
+                    <small>Nothing selected yet</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="outfit-slot" data-slot="bottoms">
+                <div class="outfit-slot-placeholder">
+                  <span>02</span>
+                  <div>
+                    <strong>Bottoms</strong>
+                    <small>Nothing selected yet</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="outfit-slot" data-slot="purses">
+                <div class="outfit-slot-placeholder">
+                  <span>03</span>
+                  <div>
+                    <strong>Purse</strong>
+                    <small>Nothing selected yet</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="outfit-slot" data-slot="sunglasses">
+                <div class="outfit-slot-placeholder">
+                  <span>04</span>
+                  <div>
+                    <strong>Sunglasses</strong>
+                    <small>Nothing selected yet</small>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Colour suggestions -->
+            <div class="color-suggestions">
+              <span class="step-number">03</span>
+              <h3>Colour direction</h3>
+              <p>Some tones to inspire your combination.</p>
+
+              <div
+                class="color-swatch-list"
+                id="color-suggestions"
+                aria-label="Suggested outfit colours"
+              >
+                <span class="color-swatch" style="background:#D8C6B4" title="Warm taupe"></span>
+                <span class="color-swatch" style="background:#A98F86" title="Dusty rose"></span>
+                <span class="color-swatch" style="background:#74745F" title="Muted olive"></span>
+                <span class="color-swatch" style="background:#E9DFD3" title="Soft ivory"></span>
+              </div>
+
+              <p class="color-suggestion-label" id="color-suggestion-label">
+                A soft, earthy palette
+              </p>
+            </div>
+
+            <!-- Total and actions -->
+            <div class="outfit-total">
+              <span>Total outfit price</span>
+              <strong id="outfit-total">Rs. 0</strong>
+            </div>
+
+            <div class="builder-actions">
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="clear-outfit"
+              >
+                Clear outfit
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-secondary"
+                id="save-outfit"
+              >
+                Save outfit
+              </button>
+            </div>
+
+            <p
+              class="builder-save-status"
+              id="builder-save-status"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing section -->
+    <section class="builder-bottom-cta">
+      <div class="container">
+        <span class="eyebrow">KEEP EXPLORING</span>
+        <h2>Good style starts with you.</h2>
+        <p>Find more pieces and create another combination.</p>
+        <a href="shop.html" class="btn btn-primary">Explore collections</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <a href="index.html" class="brand">common thread<span>.</span></a>
+      <p>Wear what feels like you.</p>
+      <span class="footer-copy">© 2026 Common Thread. All rights reserved.</span>
+    </div>
+  </footer>
+</body>
+</html>
