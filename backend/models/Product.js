@@ -37,6 +37,11 @@ const productSchema = new mongoose.Schema(
             required: true
         },
 
+        colorCode: {
+            type: String,
+            default: ""
+        },
+
         image: {
             type: String,
             default: ""

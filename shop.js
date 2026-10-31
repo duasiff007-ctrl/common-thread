@@ -3,7 +3,7 @@
    COMMON THREAD — SHOP FUNCTIONALITY
 ========================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const productGrid = document.getElementById("products-grid");
   const productCount = document.getElementById("product-count");
   const searchInput = document.getElementById("product-search");
@@ -366,6 +366,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Display products on page load.
-  renderProducts();
+    // Wait for MongoDB products before displaying the Shop.
+  try {
+    await productsReady;
+    renderProducts();
+  } catch (error) {
+    productGrid.replaceChildren();
+
+    if (productCount) {
+      productCount.textContent = "Products could not be loaded.";
+    }
+
+    if (noProducts) {
+      noProducts.classList.remove("hidden");
+      noProducts.textContent =
+        "Unable to load products. Please refresh the page.";
+    }
+
+    console.error("Shop initialization failed:", error);
+  }
 });

@@ -1,5 +1,5 @@
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   // -----------------------------------
   // Elements
   // -----------------------------------
@@ -550,13 +550,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // -----------------------------------
+  //   // -----------------------------------
   // Initial setup
   // -----------------------------------
 
-  loadPreviousOutfit();
-  renderProducts();
-  renderOutfit();
-  updateTotal();
-  updateColorSuggestions();
+  try {
+    // Wait until products have loaded from MongoDB.
+    await productsReady;
+
+    loadPreviousOutfit();
+    renderProducts();
+    renderOutfit();
+    updateTotal();
+    updateColorSuggestions();
+
+  } catch (error) {
+    console.error("Builder initialization failed:", error);
+
+    showStatus("Unable to load products. Please refresh the page.");
+  }
 });
