@@ -4,7 +4,7 @@
 ========================================= */
 
 const API_BASE_URL =
-  "https://common-thread-15m4jmn20-duasiff007-ctrl.vercel.app/api";
+  "https://common-thread-omega.vercel.app/api";
 
 let products = [];
 
