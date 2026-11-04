@@ -1,3 +1,15 @@
+/* Soft rounded edges for homepage sections */
+
+.home-page .home-hero,
+.home-page .home-introduction,
+.home-page .home-collections,
+.home-page .home-editorial,
+.home-page .home-builder-feature,
+.home-page .home-philosophy,
+.home-page .home-final-cta {
+    border-radius: 18px;
+    overflow: hidden;
+}
 
 /* =========================================
    COMMON THREAD
