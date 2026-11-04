@@ -15,14 +15,11 @@ const outfitRoutes = require("./routes/outfitRoutes");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
 app.use(cors({
     origin: [
         "https://fantastic-griffin-3f12c8.netlify.app"
     ]
 }));
-
-app.use(express.json());
 
 // Connect to MongoDB when a request arrives
 let connectionPromise;
@@ -40,6 +37,8 @@ const connectDB = async (req, res, next) => {
             }
 
             await connectionPromise;
+            console.log("Connected MongoDB host:", mongoose.connection.host);
+console.log("Connected MongoDB database:", mongoose.connection.name);
         }
 
         next();
